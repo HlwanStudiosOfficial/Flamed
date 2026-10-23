@@ -1,5 +1,7 @@
 <h1 align="center">Flamed</h1>
 
+[![GitHub stars](https://img.shields.io/github/stars/HlwanStudiosOfficial/Flamed?style=social)](https://github.com/HlwanStudiosOfficial/Flamed)
+
 <img src="https://github.com/HlwanStudiosOfficial/Flamed/blob/main/pack_icon.png" align="left" width="130" height="130" alt="Flamed Logo">
 
 
