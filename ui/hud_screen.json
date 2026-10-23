@@ -1,13 +1,20 @@
 {
   "namespace": "hud",
 
-  "flamed_watermark": {
-    "type": "label",
-    "text": "§cFlamed FPS Optimized",
-    "color": [ 1.0, 0.6, 0.2 ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "offset": [ 4, 4 ],
-    "layer": 10
+  "flamed_hud_root": {
+    "type": "panel",
+    "controls": [
+      {
+        "flamed_watermark": {
+          "type": "label",
+          "text": "§6Flamed FPS Optimizer Active",
+          "color": [ 1.0, 0.8, 0.2 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ 6, 6 ],
+          "layer": 5
+        }
+      }
+    ]
   }
 }
