@@ -1,49 +1,40 @@
-# Flamed
-<img width="1024" height="1024" alt="31928" src="https://github.com/user-attachments/assets/fd764706-f524-44cd-851b-da9924983069" />
-________________________________________
+<h1 align="center">Flamed</h1>
+
+<img src="https://github.com/HlwanStudiosOfficial/Flamed/blob/main/pack_icon.png" align="left" width="130" height="130" alt="Flamed Logo">
 
 
+*[Sodium](https://github.com/CaffeineMC/sodium) on Minecraft Java and people complaining that Minecraft Bedrock is laggy on their iPhone 8? Time for Flamed to shine!*
 
+Flamed is a Minecraft Bedrock add-on which optimizes the game by removing unnecessary lag and data!
 
-# ℹ️ About Flamed
+Flamed can be downloaded on [Curseforge](https://www.curseforge.com/minecraft/mc-addons/flamed) and from our [GitHub Releases](https://github.com/HlwanStudiosOfficial/Flamed/releases).
 
-Flamed is a small and unpopular, yet stil helping budget and low-end minecrafters. This project was made by HlwanStudios (Theamyestone) at March, 9, 2026. We are working hard to find bugs and listed and appreciate your exprience.
+## Table of Contents
 
-[![Get on CurseForge](https://img.shields.io/badge/Get_on-CurseForge-orange?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/mc-addons/flamed)
+* [Introduction](#introduction)
+* [Installing Flame](#installing-flame)
+* [FAQ](#faq)
+* [License](#license)
+* [Roadmap](#roadmap)
 
-# 💻 Supported devices.
+## Introduction
 
-The supported devices are devices that can run Minecraft: Bedrock Editon. Devices like Mobile, PC, Tablet, Console and Nintendo Switch are supported. You just need a copy of this version of Minecraft: Bedrock Editon.
+* Flamed is a Minecraft Bedrock add-on which optimizes the game by removing unnecessary lag and data.
+* Flamed is fully open-source and you are allowed to reverse-engineer or clone this repository to make your own optimization mod.
+* Flamed is compatible with any device that supports Minecraft: Bedrock Edition.
 
-# 🛠 Bulids
+## Installing Flame
 
-We provide builds for Flamed. Other builds are not released yet. You can check the roadmap [here](https://github.com/HlwanStudiosOfficial/Flamed/wiki/2026-Roadmap-for-Flamed).
+You can get Flamed from our [GitHub Releases](https://github.com/HlwanStudiosOfficial/Flamed/releases) and on [Curseforge](https://www.curseforge.com/minecraft/mc-addons/flamed).
 
-## 🌙 Nightly
+## FAQ
 
-This is a pre-release build of Flamed (also known as Nightly). Nightly builds can have bugs, errors or sometimes not working. This is still the bleeding edge of new releases, so these aren't stable yet.
+* There are no Frequently asked questions yet. If you have one, please open a Issue at [GitHub Issues](https://github.com/HlwanStudiosOfficial/Flamed/issues)
 
-## 📥 Installing Flamed
+## License
 
-1.First you want to go to the Releases section and download the file ending in .mcpack.
+* Flamed is licensed under the LGPL-3.0.
 
-2.Now for most devices you can just simply click to Open Minecraft and skip to Step 5. Otherwise, go to the next step (mostly happens on android).
+## Roadmap
 
-3. Now, get zFile from the Play Store and grant permissions.
-
-4. Find the .mcpack file and click on it. Then find Minecraft and click Always.
-
-5. Once done a notifaction will appear saying Import Started...
-
-6. After a few seconds it will say
-Imported Flame -HlwanStudios 
-or
-Imported Sugar -HlwanStudios (nightly version 0.1.0 and earlier.)
-
-7. Now go to Settings in the main menu and scroll down to Resource Packs.
-
-8. Click My Packs then Click Sugar -HlwanStudios.
-
-9. Click Actvaite.
-
-10. Now you will see the difference of your old FPS and new FPS when in a world.
+* The Roadmap for 2027 is a W.I.P. I'll do it soon.
