@@ -1,0 +1,17 @@
+[
+  {
+    "flipbook_texture": "textures/blocks/water_still",
+    "atlas_tile": "water_still",
+    "ticks_per_frame": 0
+  },
+  {
+    "flipbook_texture": "textures/blocks/lava_still",
+    "atlas_tile": "lava_still",
+    "ticks_per_frame": 0
+  },
+  {
+    "flipbook_texture": "textures/blocks/fire_0",
+    "atlas_tile": "fire_0",
+    "ticks_per_frame": 0
+  }
+]
