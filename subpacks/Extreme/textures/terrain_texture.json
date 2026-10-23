@@ -1,0 +1,14 @@
+{
+  "num_mip_levels": 4,
+  "padding": 8,
+  "resource_pack_name": "flamed_extreme",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "water_still": {
+      "textures": "textures/blocks/water_still"
+    },
+    "lava_still": {
+      "textures": "textures/blocks/lava_still"
+    }
+  }
+}
