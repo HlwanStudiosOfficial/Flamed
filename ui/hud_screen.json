@@ -1,21 +1,13 @@
 {
   "namespace": "hud",
 
-  "fps_text": {
+  "flamed_watermark": {
     "type": "label",
-    "text": "#fps_text",
-    "color": [ 1.0, 1.0, 1.0 ],
+    "text": "§cFlamed FPS Optimized",
+    "color": [ 1.0, 0.6, 0.2 ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "offset": [ 5, 5 ],
-    "bindings": [
-      {
-        "binding_name": "#fps_text"
-      },
-      {
-        "binding_name": "#gfx_frame_rate_counter",
-        "binding_name_override": "#visible"
-      }
-    ]
+    "offset": [ 4, 4 ],
+    "layer": 10
   }
 }
