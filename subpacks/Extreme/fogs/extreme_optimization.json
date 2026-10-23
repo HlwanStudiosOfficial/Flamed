@@ -1,0 +1,16 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "flamed:extreme_fog"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 0.2,
+        "fog_end": 0.6,
+        "fog_color": "#7da6ff",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}
