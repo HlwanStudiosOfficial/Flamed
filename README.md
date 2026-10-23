@@ -33,7 +33,7 @@ You can get Flamed from our [GitHub Releases](https://github.com/HlwanStudiosOff
 
 ## License
 
-* Flamed is licensed under the LGPL-3.0.
+* Flamed is licensed under the [LGPL-3.0](https://github.com/HlwanStudiosOfficial/Flamed?tab=LGPL-3.0-1-ov-file).
 
 ## Roadmap
 
