@@ -1,17 +1,10 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.actor": {
+    "controller.render.agent": {
       "geometry": "Geometry.default",
-      "materials": [
-        { "*": "Material.default" }
-      ],
-      "textures": [
-        "Texture.default"
-      ],
-      "part_visibility": [
-        { "*": "query.distance_from_camera < 24.0" }
-      ]
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
     }
   }
 }
