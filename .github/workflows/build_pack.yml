@@ -1,0 +1,87 @@
+name: Build Minecraft Optimization Pack
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Generate Optimization Particle Files
+      shell: python
+      run: |
+        import json
+        import os
+
+        # Target Low subpack particle folder
+        output_dir = os.path.join("subpacks", "Low", "particles")
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Core optimization particles for Low preset
+        particles_to_disable = [
+            "minecraft:campfire_smoke_particle",
+            "minecraft:lava_particle",
+            "minecraft:lava_drip_particle",
+            "minecraft:water_drip_particle",
+            "minecraft:water_splash_particle",
+            "minecraft:portal_directional_particle",
+            "minecraft:rain_splash_particle",
+            "minecraft:falling_dust_particle"
+        ]
+
+        disable_template = {
+            "format_version": "1.10.0",
+            "particle_effect": {
+                "description": {
+                    "identifier": "",
+                    "basic_render_parameters": {
+                        "material": "particles_alpha",
+                        "texture": "textures/particle/particles"
+                    }
+                },
+                "components": {
+                    "minecraft:emitter_lifetime_once": {
+                        "active_time": 0.1
+                    },
+                    "minecraft:emitter_rate_instant": {
+                        "num_particles": 0
+                    },
+                    "minecraft:particle_lifetime_expression": {
+                        "max_lifetime": 0
+                    }
+                }
+            }
+        }
+
+        for particle_id in particles_to_disable:
+            filename = particle_id.replace("minecraft:", "") + ".json"
+            file_path = os.path.join(output_dir, filename)
+
+            data = disable_template.copy()
+            data["particle_effect"]["description"]["identifier"] = particle_id
+
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2)
+            print(f"Generated: {file_path}")
+
+    - name: Package into .mcpack
+      uses: vimtor/action-zip@v1
+      with:
+        files: Flamed-main/ # Adjust this if your root folder name inside the repo is different
+        dest: Flamed-Optimization-Low.mcpack
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Minecraft-Optimization-Pack
+        path: Flamed-Optimization-Low.mcpack
