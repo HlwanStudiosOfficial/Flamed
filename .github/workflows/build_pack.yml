@@ -1,11 +1,15 @@
-name: Build Minecraft Optimization Pack
+name: Generate Particle Optimizations & Commit
 
 on:
   push:
     branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  generate-and-commit:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +27,9 @@ jobs:
         import json
         import os
 
-        # Target Low subpack particle folder
-        output_dir = os.path.join("subpacks", "Low", "particles")
-        os.makedirs(output_dir, exist_ok=True)
-
-        # Core optimization particles for Low preset
-        particles_to_disable = [
+        # Subpack configurations
+        # Maps subpack folder to the particles that should be disabled in it
+        low_particles = [
             "minecraft:campfire_smoke_particle",
             "minecraft:lava_particle",
             "minecraft:lava_drip_particle",
@@ -38,6 +39,12 @@ jobs:
             "minecraft:rain_splash_particle",
             "minecraft:falling_dust_particle"
         ]
+
+        subpack_config = {
+            "subpacks/Low/particles": low_particles,
+            # Add Medium, High, Extreme folders here as we vibe code them!
+            # "subpacks/Medium/particles": medium_particles,
+        }
 
         disable_template = {
             "format_version": "1.10.0",
@@ -63,25 +70,22 @@ jobs:
             }
         }
 
-        for particle_id in particles_to_disable:
-            filename = particle_id.replace("minecraft:", "") + ".json"
-            file_path = os.path.join(output_dir, filename)
+        for folder, particles in subpack_config.items():
+            os.makedirs(folder, exist_ok=True)
+            for particle_id in particles:
+                filename = particle_id.replace("minecraft:", "") + ".json"
+                file_path = os.path.join(folder, filename)
 
-            data = disable_template.copy()
-            data["particle_effect"]["description"]["identifier"] = particle_id
+                data = disable_template.copy()
+                data["particle_effect"]["description"]["identifier"] = particle_id
 
-            with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, indent=2)
-            print(f"Generated: {file_path}")
+                with open(file_path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2)
+                print(f"Generated: {file_path}")
 
-    - name: Package into .mcpack
-      uses: vimtor/action-zip@v1
-      with:
-        files: Flamed-main/ # Adjust this if your root folder name inside the repo is different
-        dest: Flamed-Optimization-Low.mcpack
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Minecraft-Optimization-Pack
-        path: Flamed-Optimization-Low.mcpack
+    - name: Commit and Push changes back to main branch
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add subpacks/
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate particle optimization files" && git push)
