@@ -21,14 +21,12 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Generate Optimization Particle Files
+    - name: Generate Subpack Particle Files
       shell: python
       run: |
         import json
         import os
 
-        # Subpack configurations
-        # Maps subpack folder to the particles that should be disabled in it
         low_particles = [
             "minecraft:campfire_smoke_particle",
             "minecraft:lava_particle",
@@ -40,10 +38,38 @@ jobs:
             "minecraft:falling_dust_particle"
         ]
 
+        medium_particles = low_particles + [
+            "minecraft:basic_flame_particle",
+            "minecraft:soul_fire_particle",
+            "minecraft:bubble_column_bubble",
+            "minecraft:squid_ink_particle"
+        ]
+
+        high_particles = medium_particles + [
+            "minecraft:spore_blossom_ambient_particle",
+            "minecraft:falling_spore_blossom_particle",
+            "minecraft:end_rod",
+            "minecraft:ash_particle",
+            "minecraft:crimson_spore_particle",
+            "minecraft:warped_spore_particle"
+        ]
+
+        extreme_particles = high_particles + [
+            "minecraft:critical_hit_particle",
+            "minecraft:enchanted_hit_particle",
+            "minecraft:mob_spell_emitter",
+            "minecraft:potion_splash_particle",
+            "minecraft:enchanting_table_particle",
+            "minecraft:explosion_particle",
+            "minecraft:large_explosion_particle",
+            "minecraft:block_destruct_particle"
+        ]
+
         subpack_config = {
             "subpacks/Low/particles": low_particles,
-            # Add Medium, High, Extreme folders here as we vibe code them!
-            # "subpacks/Medium/particles": medium_particles,
+            "subpacks/Medium/particles": medium_particles,
+            "subpacks/High/particles": high_particles,
+            "subpacks/Extreme/particles": extreme_particles,
         }
 
         disable_template = {
@@ -88,4 +114,4 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add subpacks/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate particle optimization files" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate all subpack particle optimizations (Low, Medium, High, Extreme)" && git push)
